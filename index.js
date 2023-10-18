@@ -19,7 +19,7 @@ app.use(
 );
 
 app.get("/", (req, res) => res.send("Hello  World! "));
-app.get("/employee", async (req, res) =>{
+app.get("/employees", async (req, res) =>{
     try{
         const employees = await Employees.find()
         res.status(200).json(employees)
@@ -29,6 +29,18 @@ app.get("/employee", async (req, res) =>{
     
 
 });
+app.get("/employee/:id", async (req, res) =>{
+  try{
+      const employee = await Employees.findById(req.params.id)
+      res.status(200).json(employee)
+
+  }catch(err){
+    res.status(500).json({message:err.message})
+  }
+
+})
+
+
 // app.post("/employee", async (req, res) => {
 //     const employee = req.body;
 //     const newEmployee = new Employees(employee);
