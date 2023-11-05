@@ -15,6 +15,12 @@ const mongoose = require('mongoose')
         salary: Number,
         skills: Array,
         education: Array,
+        password: {
+            type: String,
+            
+        },
+    },{
+        timestamps: true
     })
 
     const employees = mongoose.model('employee_datas', employeeSchema)
