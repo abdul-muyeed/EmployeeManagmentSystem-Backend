@@ -21,23 +21,35 @@ const employeeSchema = new mongoose.Schema(
     },
     position: {
       type: String,
+      default: "",
     },
     email: {
       type: String,
       required: true,
       unique: true,
     },
-    phone: String,
-    address: String,
-    image: String,
+    phone: {
+      type: String,
+      default: "",
+    },
+    address: {
+      type: String,
+      default: "",
+    },
+    image: {
+      type: String,
+      default: "https://picsum.photos/200",
+    },
     department: {
       type: String,
+      default: "",
     },
     joiningDate: {
       type: Date,
     },
     salary: {
       type: Number,
+      default: 0,
     },
     skills: {
       type: [String],

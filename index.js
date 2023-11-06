@@ -8,14 +8,13 @@ const cookieParser = require("cookie-parser");
 const employeeRouter = require("./routes/employee");
 const authRouter = require("./routes/auth");
 const port = process.env.PORT;
-
+// connecting to MongoDB
 MongoDB();
 app.use(cookieParser());
-
 app.use(bodyParser.json());
 app.use(cors());
-app.use("/api/employee", employeeRouter);
-app.use("/api/auth", authRouter);
+app.use("/employee", employeeRouter);
+app.use("/auth", authRouter);
 
 app.use((err, req, res, next) => {
   const status = err.status || 500;

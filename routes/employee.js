@@ -9,9 +9,11 @@ const router = express.Router();
 
 router.get("/",getEmployees);
 router.get('/:id',getEmployee)
+
+// need verify token to access this route
 router.post('/add',verifyToken,addEmployee)
 router.post('/edit/:id',verifyToken,editEmployee)
-router.post('/delete/:id',verifyToken,deleteEmployee)
+router.delete('/delete/:id',verifyToken,deleteEmployee)
 
 
 
